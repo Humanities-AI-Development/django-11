@@ -1,0 +1,15 @@
+{% for reply in reply_list %}
+<div style="width:90%; margin-right:0; margin-left:auto;">
+    <a href="#" class="list-group-item list-group-item-action" style="display:block;">
+    <div class="d-flex w-100 justify-content-between">
+      <h5>{{reply.username}}&emsp;</h5>
+      <small class="text-muted">{{ reply.created_at|date:"Y-m-j H:i:s"}}</small>
+    </div>
+    <p class="text-muted">{{reply.text}}</p>
+    <br>
+  </a>
+</div>
+  {% with reply_list=reply.comment_set.all %}
+    {% include 'app/include_reply.html' %}
+  {% endwith %} 
+{% endfor %}

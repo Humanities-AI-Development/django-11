@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}commnt{% endblock title%}
+{% block body %}
+<h1>To:</h1>
+<div class="card-header">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{comment.username}}</li>
+        <li class="list-group-item">{{comment.text}} </li>  
+    </ul>
+</div>
+<br><br>
+<div class="card  mt-5 mx-auto">
+        <form method="POST">
+          {% csrf_token %}
+            <div class="card-header">
+                <div class="form-group">
+                    <label for="UserNameIDtoFor">UserName</label>
+                    <input type="email" class="form-control" id="UserNameIDtoFor"  value="{{user.get_username}}" readonly>
+                </div>
+                <br>
+                {{form.text}}    
+            </div> 
+        </div>
+        <button type="submit" class="btn btn-outline-warning float-right" style="width:100%">リプライ</button>
+        </form>
+      </div>
+</div>
+
+
+{% endblock body%}
+
+
